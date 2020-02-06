@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
 * main - Entry point
-* Description: print alphabet except e and q letters
+* 
 * Return: Always 0 (Success)
 */
 
