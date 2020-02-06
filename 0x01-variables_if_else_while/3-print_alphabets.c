@@ -12,7 +12,7 @@ int j;
 i = 'a';
 j = 'z';
 
-for (i; i <= j; i++)
+for (;i <= j; i++)
 {
 putchar(i);
 if (i == 122)
