@@ -15,7 +15,7 @@ alph++;
 }
 if (alph == 'e' || alph == 'q')
 {
-alph;
+alph++;
 }
 putchar('\n');
 return (0);
