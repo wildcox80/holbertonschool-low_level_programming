@@ -4,7 +4,7 @@
 *
 * Return: Always 0 (Success)
 */
-int main(voi)
+int main(void)
 {
 int i;
 for (int i = 0; i < 100 ; i++)
