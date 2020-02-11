@@ -11,7 +11,7 @@ int ld;
 if (n < 0)
 {
 	ld = -1 * (n % 10);
-	_putchar(n + '0');
+	_putchar(ld + '0');
 	return (ld);
 }
 else
