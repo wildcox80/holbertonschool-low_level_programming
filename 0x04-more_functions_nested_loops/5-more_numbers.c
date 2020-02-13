@@ -1,32 +1,27 @@
 #include "holberton.h"
 
 /**
- * most_numbers - Print numbers 0 to 9, minus 2 and 4.
+ * more_numbers - Print numbers 0 to 9, minus 2 and 4.
  * Description: use only _putchar
  */
-void most_numbers(void)
+void more_numbers(void)
 {
-	int a;
-	int b;
+       int a;
+       int b;
 
 	a = 0;
-	while (a < 15)
+	while (a < 10)
 	{
 		b = 0;
-		while (b <= 9)
+		while (b < 15)
 		{
 			if (b > 9)
-			{
-			_putchar(b / 10 + '0');
-			}
-			else
-			{
-				_putchar(b % 10 + '0');
-			}
+				_putchar(b / 10 + '0');
+
+			_putchar(b % 10 + '0');
 			b++;
 		}
-
 		a++;
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
