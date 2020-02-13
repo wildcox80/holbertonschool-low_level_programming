@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _ismul - multiplies two integers.
+ * mul - multiplies two integers.
  * @a : int type number.
  * @b : int type number.
  * Return: 100352 -1646592.
