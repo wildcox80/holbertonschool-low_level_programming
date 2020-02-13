@@ -1,14 +1,18 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
- * _ismul - multiplies two integers.
- * @a : int type number.
- * @b : int type number.
- * Return: 100352 -1646592.
+ * print_numbers - print the numbers from 0 to 9
+ * Return: 0123456789
  */
-int mul(int a, int b);
+void print_numbers(void)
 {
-	return (a * b);
-return (0);
+	int a;
+
+	a = 0;
+	while (a < 10)
+	{
+		_putchar(a + '0');
+		a++;
+	}
+	_putchar('\n');
 }
