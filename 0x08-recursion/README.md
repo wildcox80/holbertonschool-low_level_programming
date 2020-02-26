@@ -1,9 +1,8 @@
-0. memset --> Write a function that fills memory with a constant byte.
-1. memcpy --> Write a function that copies memory area.
-2. strchr --> Write a function that locates a character in a string.
-3. strspn --> Write a function that gets the length of a prefix substring.
-4. strpbrk --> Write a function that searches a string for any of a set of bytes.
-5. strstr --> Write a function that locates a substring.
-6. Chess is mental torture --> Write a function that prints the chessboard.
-7. The line of life is a ragged diagonal between duty and desire.
-8. Double pointer, double fun --> Write a function that sets the value of a pointer to a char.
+0. She locked away a secret --> Write a function that prints a string, followed by a new line.
+1. Why is it so important to dream? --> Write a function that prints a string in reverse.
+2. Dreams feel real while we're in them. --> Write a function that returns the length of a string.
+3. You mustn't be afraid to dream a little bigger, darling --> Write a function that returns the factorial of a given number.
+4. Once an idea has taken hold of the brain it's almost impossible to eradicate mandatory --> Write a function that returns the value of x raised to the power of y.
+5. Your subconscious is looking for the dreamer --> Write a function that returns the natural square root of a number.
+6. Inception. Is it possible? --> Write a function that returns 1 if the input integer is a prime number, otherwise return 0.
+7. They say we only use a fraction of our brain's true potential. --> Write a function that returns 1 if a string is a palindrome and 0 if not.
