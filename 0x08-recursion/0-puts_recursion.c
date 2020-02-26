@@ -1,4 +1,11 @@
 #include "holberton.h"
+/**
+ * _puts_recursion - recursion function to print string
+ * @s: pointer of char type
+ * description: print a string
+ *
+ * Return: Always success
+ */
 
 void _puts_recursion(char *s)
 {
@@ -7,12 +14,9 @@ void _puts_recursion(char *s)
 		_putchar('\n');
 		return;
 	}
-	else 
+	else
 	{
 		_putchar(*s);
 		_puts_recursion(s + 1);
 	}
 }
-
-
-	
