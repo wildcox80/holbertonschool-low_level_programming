@@ -6,7 +6,7 @@
  * @y: int type
  * Return: always success
  */
-int check_prime(int x, int y)
+int isPrime(int x, int y)
 {
 if (x == y)
 	return (1);
