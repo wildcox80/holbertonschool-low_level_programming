@@ -6,16 +6,14 @@
  * @y: int type
  * Return: always success
  */
-
-/* Base Case */
-int isPrime(int x, int y)
+int check_prime(int x, int y)
 {
-	if (x == y)
-		return (1);
-	else if  (y % x == 0)
-		return (0);
-	else
-		return  (isPrime(x + 1, y));
+if (x == y)
+	return (1);
+else if  (y % x == 0)
+	return (0);
+else
+	return  (isPrime(x + 1, y));
 }
 
 /**
@@ -31,5 +29,5 @@ int is_prime_number(int n)
 		return (0);
 	if (n == 0)
 		return (0);
-	return (check_prime(2,  n));
+	return (isPrime(2,  n));
 }
