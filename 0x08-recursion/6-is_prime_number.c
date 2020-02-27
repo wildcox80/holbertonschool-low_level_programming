@@ -10,12 +10,12 @@
 /* Base Case */
 int isPrime(int x, int y)
 {
-if (x == y)
-return (1);
-else if  (y % x == 0)
-return (0);
-else
-return (isPrime(x + 1, y));
+	if (x == y)
+		return (1);
+	else if  (y % x == 0)
+		return (0);
+	else
+		return  (isPrime(x + 1, y));
 }
 
 /**
