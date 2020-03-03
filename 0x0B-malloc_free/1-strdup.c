@@ -13,7 +13,7 @@ char *_strdup(char *str)
 {
 	char *s;
 	int i;
-	int counter = 0;
+	int counter = 1;
 
 	if (str == NULL)
 	{
@@ -34,6 +34,6 @@ char *_strdup(char *str)
 	{
 		s[i] = str[i];
 		i++;
-		return (s);
 	}
+	return (s);
 }
