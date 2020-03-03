@@ -25,13 +25,13 @@ char *_strdup(char *str)
 	}
 
 	s = malloc(counter);
+	if (s == NULL)
+	{
+		return (NULL);
+	}
 	i = 0;
 	while (i < counter)
 	{
-		if (s == NULL)
-		{
-			return (NULL);
-	}
 		s[i] = str[i];
 		i++;
 	}
