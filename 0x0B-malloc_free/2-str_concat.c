@@ -9,11 +9,11 @@
  */
 int _strlen(char *s)
 {
-	int a;
+	int x;
 
-	for (a = 0; s[a] != '\0'; a++)
+	for (x = 0; s[x] != '\0'; x++)
 	;
-	return (a);
+	return (x);
 }
 /**
  * _strncat - function to concatnate strings with n bytes
@@ -25,11 +25,11 @@ int _strlen(char *s)
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int dest_len, a;
+	int dest_len, x;
 
 	dest_len = _strlen(dest);
-	for (a = 0; a < n && src[a] != '\0'; a++)
-		dest[dest_len + a] = src[a];
+	for (x = 0; x < n && src[x] != '\0'; x++)
+		dest[dest_len + x] = src[x];
 	return (dest);
 }
 
