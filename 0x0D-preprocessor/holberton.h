@@ -2,9 +2,10 @@
 #define HOLBERTON
 
 int _putchar(char c);
-void *malloc_checked(unsigned int b);
-char *string_nconcat(char *s1, char *s2, unsigned int n);
-void *_calloc(unsigned int nmemb, unsigned int size);
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+#include <stdio.h>
+#include "0-object_like_macro.h"
+#include "1-pi.h"
+#include "3-function_like_macro.h"
+#include "4-sum.h"
 
 #endif /* HOLBERTON */
