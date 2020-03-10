@@ -1,55 +1,80 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "dog.h"
+
 /**
- * scpy - Copy a string.
- * @src: Source.
- * @dest: Destination.
+ * _strlen - return length of a string
  *
- * Return: It returns the string..
+ * @s: char type
+ * Return:  length of string
  */
-char *scpy(char *src, char *dest)
+
+int _strlen(char *s)
 {
-	int i;
+	int a;
 
-	for (i = 0; src[i] != '\0'; i++)
-		dest[i] = src[i];
+	for (a = 0; s[a] != '\0'; a++)
+	{
 
-	dest[i] = '\0';
+	}
+	return (a);
+}
+/**
+ * _strcpy - function to copy string from source to destination
+ *@dest: pointer to destinatioin of string to be copied
+ *@src: pointer to source of string to be copied
+ * Return: return the value at dest
+ */
 
+char *_strcpy(char *dest, char *src)
+{
+	int a;
+
+	for (a = 0; src[a] != '\0'; a++)
+	{
+		dest[a] = src[a];
+	}
+	dest[a] = '\0';
 	return (dest);
 }
 /**
- * new_dog - It creates a new dog :3
- * @name: Dog's Name.
- * @age: Dog's Age.
- * @owner: Dog's Owner.
- *
- * Return: It returns a pointer to structure.
+ * *new_dog - function to create new dog struct
+ * @name: char type
+ * @age: float type
+ * @owner: char type
+ * Return: Always success
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *temp;
+	dog_t *newd;
 
-	temp = malloc(sizeof(dog_t));
-	if (temp == NULL)
+	newd = malloc(sizeof(struct dog));
+	if (newd == NULL)
 		return (NULL);
 
-	temp->name = malloc(sizeof(name) + 1);
-	if (temp->name == NULL)
+	if (name == NULL)
 	{
-		free(temp);
+		free(newd);
 		return (NULL);
 	}
-	temp->owner = malloc(sizeof(owner) + 1);
-	if (temp->owner == NULL)
+	newd->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	if (newd->name == NULL)
+		return (NULL);
+	_strcpy(newd->name, name);
+
+	newd->age = age;
+
+	if (owner == NULL)
 	{
-		free(temp->name);
-		free(temp);
+		free(newd->owner);
+		free(newd);
 		return (NULL);
 	}
+	newd->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	if (newd->owner == NULL)
+		return (NULL);
+	_strcpy(newd->owner, owner);
 
-	temp->name = scpy(name, temp->name);
-	temp->age = age;
-	temp->owner = scpy(owner, temp->owner);
-
-	return (temp);
+	return (newd);
 }
