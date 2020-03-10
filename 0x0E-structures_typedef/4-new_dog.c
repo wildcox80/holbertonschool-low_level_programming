@@ -1,11 +1,32 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "dog.h"
+
 /**
- * strcpy - function to copy string from source
- *@dest: pointer to destination of string
- *@src: pointer to source of string
+ * _strlen - return length of a string
+ *
+ * @s: char type
+ * Return:  length of string
+ */
+
+int _strlen(char *s)
+{
+	int a;
+
+	for (a = 0; s[a] != '\0'; a++)
+	{
+
+	}
+	return (a);
+}
+/**
+ * _strcpy - function to copy string from source to destination
+ *@dest: pointer to destinatioin of string to be copied
+ *@src: pointer to source of string to be copied
  * Return: return the value at dest
  */
 
-char *strcpy(char *dest, char *src)
+char *_strcpy(char *dest, char *src)
 {
 	int a;
 
@@ -17,38 +38,43 @@ char *strcpy(char *dest, char *src)
 	return (dest);
 }
 /**
- * new_dog - It creates a new dog :3
- * @name: Dog's Name.
- * @age: Dog's Age.
- * @owner: Dog's Owner.
- *
- * Return: It returns a pointer to structure.
+ * *new_dog - function to create new dog struct
+ * @name: char type
+ * @age: float type
+ * @owner: char type
+ * Return: Always success
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog_n;
+	dog_t *newd;
 
-	dog_n = malloc(sizeof(dog_t));
-	if (dog_n == NULL)
+	newd = malloc(sizeof(struct dog));
+	if (newd == NULL)
 		return (NULL);
 
-	dog_n->name = malloc(sizeof(name) + 1);
-	if (dog_n->name == NULL)
+	if (name == NULL)
 	{
-		free(dog_n);
+		free(newd);
 		return (NULL);
 	}
-	dog_n->owner = malloc(sizeof(owner) + 1);
-	if (dog_n->owner == NULL)
+	newd->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	if (newd->name == NULL)
+		return (NULL);
+	_strcpy(newd->name, name);
+
+	newd->age = age;
+
+	if (owner == NULL)
 	{
-		free(dog_n->name);
-		free(dog_n);
+		free(newd->owner);
+		free(newd);
 		return (NULL);
 	}
+	newd->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	if (newd->owner == NULL)
+		return (NULL);
+	_strcpy(newd->owner, owner);
 
-	dog_n->name = strcpy(name, dog_n->name);
-	dog_n->age = age;
-	dog_n->owner = strcpy(owner, dog_n->owner);
-
-	return (dog_n);
+	return (newd);
 }
