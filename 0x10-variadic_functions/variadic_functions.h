@@ -11,9 +11,9 @@ int _putchar(char c);
 	  */
 typedef struct pter
 {
-		char *test;
-			void (*printer)();
-} pt;
+char *test;
+void (*printer)();
+}pt;
 
 void print_int(va_list arg);
 
