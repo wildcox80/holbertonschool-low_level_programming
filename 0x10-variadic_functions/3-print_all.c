@@ -1,100 +1,89 @@
 #include "variadic_functions.h"
 
 /**
- * print_c - prints char
- * @list: arguement char
- * @separator: seperator
- */
-
-void print_c(va_list list, char *separator)
+ * print_string - Print a string
+ * @list: List of arguments
+ **/
+void print_string(va_list list)
 {
-	printf("%s%c", separator, va_arg(list, int));
+	char *aux;
+
+	aux = va_arg(list, char*);
+	if (aux == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+
+	printf("%s", aux);
 }
 
 /**
- * print_i - prints int
- * @list: arguement of list
- * @s: seperator
- * Return: none
- */
-
-void print_i(va_list list, char *s)
+ * print_integer - Print a integer
+ * @list: List of arguments
+ **/
+void print_integer(va_list list)
 {
-	printf("%s%d", s, va_arg(list, int));
+	printf("%i", va_arg(list, int));
 }
 
 /**
- * print_f - prints floats
- * @separator: float to print
- * @list: next arguement of list to print
- * Return: none
- */
-
-void print_f(va_list list, char *separator)
+ * print_float - Print a float
+ * @list: List of arguments
+ **/
+void print_float(va_list list)
 {
-	printf("%s%f", separator, va_arg(list, double));
+	printf("%f", va_arg(list, double));
 }
 
 /**
- * print_s - prints string
- * @separator: seperator
- * @list: list to print
- * Return: none
- */
-
-void print_s(va_list list, char *separator)
+ * print_char - Print a char
+ * @list: List of arguments
+ **/
+void print_char(va_list list)
 {
-	char *s;
-
-	s = va_arg(list, char *);
-	if (s == NULL)
-		s = "(nil)";
-	printf("%s%s", separator, s);
+	printf("%c", va_arg(list, int));
 }
 
-
 /**
- * print_all - prints out all stuff
- * @format: format is list of types of arguements
- */
-
-void print_all(const char * const format, ...)
+ * print_all - Prints anything
+ * @fmt: List of types of arguments passed to the function
+ **/
+void print_all(const char * const fmt, ...)
 {
-	va_list list;
-	char *separator;
+	va_list args;
 	int i, j;
-
-	/*Declaring struct*/
-	format_type fm[] = {
-		{"c", print_c},
-		{"i", print_i},
-		{"f", print_f},
-		{"s", print_s},
-		{NULL, NULL}
+	char *str = "";
+	p_opt ops[] = {
+		{"s", print_string},
+		{"i", print_integer},
+		{"f", print_float},
+		{"c", print_char}
 	};
 
-	/* initialize valist for num number of arguments */
-	va_start(list, format);
+	va_start(args, fmt);
 
-	separator = "";
-
-	/*Start WHILE*/
-	i = 0;
-	while (format != NULL && format[i] != '\0')
+	i = j = 0;
+	while (fmt != NULL && fmt[i] != 0)
 	{
-		j = 0; /*Reset variable j*/
-		while (j < 4) /*WHILE for data type*/
-		{
-			if (format[i] == *(fm[j]).fm) /*Search match*/
-			{
-				fm[j].p(list, separator);/*Assign values*/
-				separator = ", ";
 
+		while (j < 4)
+		{
+			if (fmt[i] == *(ops[j].op))
+			{
+				printf("%s", str);
+				ops[j].f(args);
+				str = ", ";
+				break;
 			}
+
 			j++;
 		}
+		j = 0;
+
 		i++;
-	} /*End WHILE*/
-	printf("\n");/*New line*/
-	va_end(list); /* clean memory reserved for valist */
+	}
+
+	printf("\n");
+	va_end(args);
 }
