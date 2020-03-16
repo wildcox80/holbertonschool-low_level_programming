@@ -1,7 +1,10 @@
-0x0F. C - Function pointers
+0x10-variadic_functions
 
-0. What's my name - Write a function that prints a name.
-1. If you spend too much time thinking about a thing - Write a function that executes a function given as a parameter on each element of an array.
-2. To hell with circumstances; I create opportunities - Write a function that searches for an integer.
-3. A goal is not always meant to be reached - Write a program that performs simple operations.
-
+0. Beauty is variable, ugliness is constant
+Write a function that returns the sum of all its parameters.
+1. To be is to be the value of a variable
+Write a function that prints numbers, followed by a new line.
+2. One woman's constant is another woman's variable
+Write a function that prints strings, followed by a new line.
+3. To be is a to be the value of a variable
+Write a function that prints anything.
