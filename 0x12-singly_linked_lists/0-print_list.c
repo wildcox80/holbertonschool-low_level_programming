@@ -1,4 +1,4 @@
-include "lists.h"
+#include "lists.h"
 /**
  * print_list - function to print node contents
  * @h: pointer to node struct
@@ -18,7 +18,7 @@ size_t print_list(const list_t *h)
 		else
 			printf("[%d] %s\n", h->len, h->str);
 		h = h->next;
-		i++;
+		x++;
 	}
 	return (x);
 }
