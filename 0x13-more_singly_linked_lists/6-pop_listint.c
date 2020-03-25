@@ -5,13 +5,6 @@
  * Return: always successful
  */
 
-#include "lists.h"
-/**
- * pop_listint - function to remove node from top
- * @head: pointer to head node
- * Return: always successful
- */
-
 int pop_listint(listint_t **head)
 {
 	listint_t *up = NULL;
