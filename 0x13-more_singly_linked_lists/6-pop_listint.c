@@ -5,8 +5,14 @@
  * Return: always successful
  */
 
-int pop_listint(listint_t **head)
+#include "lists.h"
+/**
+ * pop_listint - function to remove node from top
+ * @head: pointer to head node
+ * Return: always successful
+ */
 
+int pop_listint(listint_t **head)
 {
 	listint_t *up = NULL;
 	int x = 0;
@@ -15,11 +21,11 @@ int pop_listint(listint_t **head)
 	{
 		return (0);
 	}
-
-	up = (*head)->next;
+	up = *head;
 	x = up->n;
 	*head = up->next;
 	free(up);
 	return (x);
 
 }
+
