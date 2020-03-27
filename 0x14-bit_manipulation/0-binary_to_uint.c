@@ -13,13 +13,13 @@ unsigned int binary_to_uint(const char *b)
 	/* Variables */
 	unsigned int x = 0;
 	unsigned int y = 1;
-
+	int z;
 	/* condition is b == NULL */
 	if (b == NULL)
 		return (0);
 
 	/* Loop return converted number */
-	for (int z = 0; b[z] != '\0'; z++)
+	for (z = 0; b[z] != '\0'; z++)
 	{
 		if (b[z] != '0' && b[z] != '1')
 		{
