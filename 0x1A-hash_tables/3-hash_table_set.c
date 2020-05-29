@@ -1,40 +1,73 @@
 #include "hash_tables.h"
+
 /**
- * hash_table_set - function that new node to a hash table
- * @ht: is the hash table to be updated
- * @key: key cannot be empty
- * @value: value to be associated to the key
+ * create_hash_node - creates a new hash node
+ * @key: key for the node
+ * @value: for the node
+ *
+ * Return: the new node, or NULL on failure
+ */
+hash_node_t *create_hash_node(const char *key, const char *value)
+{
+	hash_node_t *new_node;
+
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->key = strdup(key);
+	if (new_node->key == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	new_node->value = strdup(value);
+	if (new_node->value == NULL)
+	{
+		free(new_node->key);
+		free(new_node);
+		return (NULL);
+	}
+	new_node->next = NULL;
+	return (new_node);
+}
+
+
+/**
+ * hash_table_set - sets a key to a value in the hash table
+ * @ht: hash table to add elemt to
+ * @key: key for the data
+ * @value: data to store
+ *
  * Return: 1 if successful, 0 otherwise
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int i = 0;
-	hash_node_t *new_node, *tmp;
+	unsigned long int i;
+	hash_node_t *hash_node, *tmp;
+	char *new_value;
 
-	if (!ht || !ht->array || !key || !value || strlen(key) == 0)
+	if (ht == NULL || ht->array == NULL || ht->size == 0 ||
+	    key == NULL || strlen(key) == 0 || value == NULL)
 		return (0);
-	if (strcmp("", key) == 0)
-		return (0);
-	i = key_index((unsigned char *)key, ht->size);
-	new_node = malloc(sizeof(hash_node_t));
-	if (new_node == NULL)
-		return (0);
+	i = key_index((const unsigned char *)key, ht->size);
 	tmp = ht->array[i];
 	while (tmp != NULL)
 	{
 		if (strcmp(tmp->key, key) == 0)
 		{
+			new_value = strdup(value);
+			if (new_value == NULL)
+				return (0);
 			free(tmp->value);
-			free(new_node);
-			tmp->value = strdup(value);
+			tmp->value = new_value;
 			return (1);
 		}
-		tmp = tmp->value;
-
+		tmp = tmp->next;
 	}
-	new_node->key = strdup(key);
-	new_node->value = strdup(value);
-	new_node->next = ht->array[i];
-	ht->array[i] = new_node;
+	hash_node = create_hash_node(key, value);
+	if (hash_node == NULL)
+		return (0);
+	hash_node->next = ht->array[i];
+	ht->array[i] = hash_node;
 	return (1);
 }
