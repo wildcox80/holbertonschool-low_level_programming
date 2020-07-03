@@ -1,0 +1,9 @@
+# Makefile 1. make -f 1-Makefile
+CC = gcc
+SRC = main.c holberton.c
+OBJ = $(SRC:.c=.o)
+NAME = holberton
+
+all:$(OBJ)
+		$(CC) $(SRC) -o $(NAME)
+	
